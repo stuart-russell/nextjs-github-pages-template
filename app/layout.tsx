@@ -1,41 +1,87 @@
+"use client"
+
 import type React from "react"
-import type { Metadata } from "next"
-import { Poppins } from "next/font/google"
+
+import { Inter } from "next/font/google"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Navigation } from "@/components/navigation"
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-poppins",
-})
-
-export const metadata: Metadata = {
-  title: "John Doe - Portfolio",
-  description: "Full Stack Developer Portfolio",
-}
+const inter = Inter({ subsets: ["latin"] })
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.variable} font-sans`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-100/80 dark:from-slate-900 dark:via-purple-900/20 dark:to-indigo-950/40 relative overflow-hidden transition-colors duration-500">
-            {/* Animated background elements */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-pink-50/30 via-transparent to-cyan-50/20 dark:from-purple-900/10 dark:via-transparent dark:to-blue-900/10"></div>
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-radial from-blue-200/20 to-transparent dark:from-blue-500/5 dark:to-transparent rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-radial from-purple-200/20 to-transparent dark:from-purple-500/5 dark:to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-conic from-transparent via-indigo-100/10 to-transparent dark:via-indigo-400/5 rounded-full blur-2xl animate-spin-slow"></div>
+  const pathname = usePathname()
 
-            <Navigation />
-            <main className="pt-20 relative z-10">{children}</main>
+  const getNavItemClass = (path: string) => {
+    const isActive = pathname === path
+    return `font-medium transition-all duration-300 hover:scale-105 relative group ${
+      isActive ? "text-slate-900" : "text-slate-700 hover:text-slate-900"
+    }`
+  }
+
+  const getNavItemUnderlineClass = (path: string) => {
+    const isActive = pathname === path
+    return `absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 ${
+      isActive ? "w-full" : "w-0 group-hover:w-full"
+    }`
+  }
+
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <div className="min-h-screen bg-gradient-to-br from-indigo-200 via-purple-100 to-pink-200 relative overflow-hidden">
+          {/* Enhanced Background Elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/20 to-indigo-500/20 rounded-full blur-3xl animate-pulse"></div>
+            <div
+              className="absolute top-3/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-400/25 to-pink-400/25 rounded-full blur-3xl animate-pulse"
+              style={{ animationDelay: "2s" }}
+            ></div>
+            <div
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-cyan-300/15 to-blue-400/15 rounded-full blur-2xl animate-pulse"
+              style={{ animationDelay: "4s" }}
+            ></div>
           </div>
-        </ThemeProvider>
+
+          {/* Navbar */}
+          <nav className="backdrop-blur-lg bg-white/20 border-b border-white/30 sticky top-0 z-50 shadow-lg shadow-white/10">
+            <div className="max-w-6xl mx-auto px-6 py-4">
+              <div className="flex items-center justify-between">
+                <Link
+                  href="/"
+                  className="text-2xl font-bold bg-gradient-to-r from-slate-700 to-slate-900 bg-clip-text text-transparent"
+                >
+                  Portfolio
+                </Link>
+                <div className="flex space-x-8">
+                  <Link href="/" className={getNavItemClass("/")}>
+                    About
+                    <span className={getNavItemUnderlineClass("/")}></span>
+                  </Link>
+                  <Link href="/projects" className={getNavItemClass("/projects")}>
+                    Projects
+                    <span className={getNavItemUnderlineClass("/projects")}></span>
+                  </Link>
+                  <Link href="/blog" className={getNavItemClass("/blog")}>
+                    Blog
+                    <span className={getNavItemUnderlineClass("/blog")}></span>
+                  </Link>
+                  <Link href="/resume" className={getNavItemClass("/resume")}>
+                    Resume
+                    <span className={getNavItemUnderlineClass("/resume")}></span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          {/* Page Content */}
+          {children}
+        </div>
       </body>
     </html>
   )
