@@ -1,6 +1,7 @@
 import { execSync } from 'child_process';
 import { readdirSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
+import { createResumePdf } from './createResumePdf';
 
 function runBuild() {
     execSync('npm run build', { stdio: 'inherit' });
@@ -22,11 +23,15 @@ function fixHtmlFiles(outDir: string) {
     }
 }
 
-function main() {
+async function main() {
     console.log('Building the project...');
     runBuild();
     console.log('Fixing static file paths...');
     fixHtmlFiles('out');
+    console.log('Build and path fix completed successfully.');
+    console.log('Generating PDF from resume...')
+    createResumePdf();
+    console.log('PDF generation completed successfully.');
 }
 
 main();

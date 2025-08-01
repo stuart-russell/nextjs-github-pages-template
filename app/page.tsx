@@ -1,19 +1,22 @@
-import { Github, MapPin, Users, Building2, Mail, MessageCircle } from "lucide-react"
+import { globalConfig } from "@/lib/globalConfig"
+import { MapPin, Users, Building2, Mail, MessageCircle } from "lucide-react"
 import Image from "next/image"
 
 export default function HomePage() {
   // Mock GitHub profile data
   const profileData = {
-    avatar: "/placeholder.svg?height=120&width=120",
-    name: "Alex Johnson",
-    username: "alexjohnson",
-    bio: "Full-stack developer passionate about creating beautiful, functional web experiences. Always learning, always building.",
-    location: "San Francisco, CA",
-    company: "Tech Innovations Inc.",
-    followers: 1247,
-    following: 892,
+    avatar: globalConfig.user.avatar_url || "/placeholder.svg",
+    name: globalConfig.user.name || "John Doe",
+    username: globalConfig.user.login || "john_doe",
+    bio: globalConfig.user.bio || "Full-stack developer passionate about creating beautiful, functional web experiences. Always learning, always building.",
+    location: globalConfig.user.location || "Timbuktu, Mali",
+    company: globalConfig.user.company || "Self-employed",
+    followers: globalConfig.user.followers || 0,
+    following: globalConfig.user.following || 0,
+    followersUrl: `https://github.com/${globalConfig.user.login}?tab=followers`,
+    followingUrl: `https://github.com/${globalConfig.user.login}?tab=following`,
     contacts: [
-      { icon: Mail, label: "Email", href: "mailto:alex@example.com" },
+      { icon: Mail, label: "Email", href: globalConfig.user.email },
       { icon: MessageCircle, label: "Signal", href: "https://signal.me/#eu/your-signal-link" },
     ],
   }
@@ -33,9 +36,6 @@ export default function HomePage() {
                 height={120}
                 className="rounded-full border-4 border-white/50 shadow-lg"
               />
-              <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full p-2 border-2 border-white shadow-lg">
-                <Github className="w-4 h-4 text-white" />
-              </div>
             </div>
             <h1 className="text-2xl font-bold text-slate-800 mb-1">{profileData.name}</h1>
             <p className="text-slate-600 text-sm">@{profileData.username}</p>
@@ -49,17 +49,27 @@ export default function HomePage() {
           {/* Stats */}
           <div className="flex justify-center space-x-8 mb-6">
             <div className="text-center group cursor-pointer">
-              <div className="flex items-center justify-center space-x-1 text-slate-600 group-hover:text-slate-800 transition-colors duration-200">
+                <a
+                href={profileData.followersUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center space-x-1 text-slate-600 group-hover:text-slate-800 transition-colors duration-200 underline-offset-2 hover:underline"
+                >
                 <Users className="w-4 h-4" />
                 <span className="font-semibold">{profileData.followers.toLocaleString()}</span>
-              </div>
+                </a>
               <p className="text-xs text-slate-500 mt-1">Followers</p>
             </div>
             <div className="text-center group cursor-pointer">
-              <div className="flex items-center justify-center space-x-1 text-slate-600 group-hover:text-slate-800 transition-colors duration-200">
-                <Users className="w-4 h-4" />
-                <span className="font-semibold">{profileData.following.toLocaleString()}</span>
-              </div>
+              <a
+              href={profileData.followingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center space-x-1 text-slate-600 group-hover:text-slate-800 transition-colors duration-200 underline-offset-2 hover:underline"
+              >
+              <Users className="w-4 h-4" />
+              <span className="font-semibold">{profileData.following.toLocaleString()}</span>
+              </a>
               <p className="text-xs text-slate-500 mt-1">Following</p>
             </div>
           </div>
@@ -88,7 +98,7 @@ export default function HomePage() {
                 return (
                   <a
                     key={contact.label}
-                    href={contact.href}
+                    href={contact.href ?? undefined}
                     className="group relative cursor-pointer"
                     style={{
                       animationDelay: `${index * 100}ms`,
@@ -109,9 +119,15 @@ export default function HomePage() {
 
           {/* Action Button */}
           <div className="mt-8 text-center">
-            <button className="bg-gradient-to-r from-slate-700 to-slate-900 hover:from-slate-800 hover:to-slate-950 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg shadow-slate-300/50">
+            <a
+              href={`https://github.com/${profileData.username}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="bg-gradient-to-r from-slate-700 to-slate-900 hover:from-slate-800 hover:to-slate-950 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg shadow-slate-300/50">
               View GitHub Profile
-            </button>
+              </button>
+            </a>
           </div>
         </div>
       </div>

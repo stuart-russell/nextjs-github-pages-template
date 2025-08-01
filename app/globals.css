@@ -22,6 +22,205 @@
   }
 }
 
+/* Theme Variables */
+:root {
+  /* Default Theme - Cosmic Purple */
+  --bg-gradient-from: #c7d2fe; /* indigo-200 */
+  --bg-gradient-via: #e9d5ff; /* purple-100 */
+  --bg-gradient-to: #fce7f3; /* pink-200 */
+  --floating-orb-1-from: #60a5fa; /* blue-400 */
+  --floating-orb-1-to: #6366f1; /* indigo-500 */
+  --floating-orb-2-from: #a78bfa; /* purple-400 */
+  --floating-orb-2-to: #f472b6; /* pink-400 */
+  --floating-orb-3-from: #67e8f9; /* cyan-300 */
+  --floating-orb-3-to: #60a5fa; /* blue-400 */
+}
+
+/* Ocean Theme */
+[data-theme="ocean"] {
+  --bg-gradient-from: #bae6fd; /* sky-200 */
+  --bg-gradient-via: #a7f3d0; /* emerald-200 */
+  --bg-gradient-to: #99f6e4; /* teal-200 */
+  --floating-orb-1-from: #0ea5e9; /* sky-500 */
+  --floating-orb-1-to: #0891b2; /* cyan-600 */
+  --floating-orb-2-from: #06b6d4; /* cyan-500 */
+  --floating-orb-2-to: #14b8a6; /* teal-500 */
+  --floating-orb-3-from: #22d3ee; /* cyan-400 */
+  --floating-orb-3-to: #2dd4bf; /* teal-400 */
+}
+
+/* Sunset Theme */
+[data-theme="sunset"] {
+  --bg-gradient-from: #fed7aa; /* orange-200 */
+  --bg-gradient-via: #fecaca; /* red-200 */
+  --bg-gradient-to: #fde68a; /* yellow-200 */
+  --floating-orb-1-from: #f97316; /* orange-500 */
+  --floating-orb-1-to: #dc2626; /* red-600 */
+  --floating-orb-2-from: #ef4444; /* red-500 */
+  --floating-orb-2-to: #f59e0b; /* amber-500 */
+  --floating-orb-3-from: #fb923c; /* orange-400 */
+  --floating-orb-3-to: #fbbf24; /* amber-400 */
+}
+
+/* Forest Theme */
+[data-theme="forest"] {
+  --bg-gradient-from: #bbf7d0; /* green-200 */
+  --bg-gradient-via: #d9f99d; /* lime-200 */
+  --bg-gradient-to: #fef3c7; /* amber-100 */
+  --floating-orb-1-from: #22c55e; /* green-500 */
+  --floating-orb-1-to: #16a34a; /* green-600 */
+  --floating-orb-2-from: #65a30d; /* lime-600 */
+  --floating-orb-2-to: #84cc16; /* lime-500 */
+  --floating-orb-3-from: #4ade80; /* green-400 */
+  --floating-orb-3-to: #a3e635; /* lime-400 */
+}
+
+/* Monochrome Theme */
+[data-theme="monochrome"] {
+  --bg-gradient-from: #f1f5f9; /* slate-100 */
+  --bg-gradient-via: #e2e8f0; /* slate-200 */
+  --bg-gradient-to: #cbd5e1; /* slate-300 */
+  --floating-orb-1-from: #64748b; /* slate-500 */
+  --floating-orb-1-to: #475569; /* slate-600 */
+  --floating-orb-2-from: #6b7280; /* gray-500 */
+  --floating-orb-2-to: #4b5563; /* gray-600 */
+  --floating-orb-3-from: #9ca3af; /* gray-400 */
+  --floating-orb-3-to: #6b7280; /* gray-500 */
+}
+
+/* Lavender Theme */
+[data-theme="lavender"] {
+  --bg-gradient-from: #e9d5ff; /* purple-200 */
+  --bg-gradient-via: #f3e8ff; /* purple-100 */
+  --bg-gradient-to: #fae8ff; /* fuchsia-100 */
+  --floating-orb-1-from: #a855f7; /* purple-500 */
+  --floating-orb-1-to: #9333ea; /* purple-600 */
+  --floating-orb-2-from: #c084fc; /* purple-400 */
+  --floating-orb-2-to: #e879f9; /* fuchsia-400 */
+  --floating-orb-3-from: #d8b4fe; /* purple-300 */
+  --floating-orb-3-to: #f0abfc; /* fuchsia-300 */
+}
+
+/* Cherry Blossom Theme */
+[data-theme="cherry"] {
+  --bg-gradient-from: #fce7f3; /* pink-100 */
+  --bg-gradient-via: #fdf2f8; /* pink-50 */
+  --bg-gradient-to: #fef7ff; /* fuchsia-50 */
+  --floating-orb-1-from: #ec4899; /* pink-500 */
+  --floating-orb-1-to: #be185d; /* pink-700 */
+  --floating-orb-2-from: #f472b6; /* pink-400 */
+  --floating-orb-2-to: #e879f9; /* fuchsia-400 */
+  --floating-orb-3-from: #fbcfe8; /* pink-200 */
+  --floating-orb-3-to: #f0abfc; /* fuchsia-300 */
+}
+
+/* Neon Theme */
+[data-theme="neon"] {
+  --bg-gradient-from: #1f2937; /* gray-800 */
+  --bg-gradient-via: #111827; /* gray-900 */
+  --bg-gradient-to: #0f172a; /* slate-900 */
+  --floating-orb-1-from: #00ff88; /* custom neon green */
+  --floating-orb-1-to: #00ccff; /* custom neon cyan */
+  --floating-orb-2-from: #ff0080; /* custom neon pink */
+  --floating-orb-2-to: #8000ff; /* custom neon purple */
+  --floating-orb-3-from: #ffff00; /* custom neon yellow */
+  --floating-orb-3-to: #ff4000; /* custom neon orange */
+}
+
+/* Autumn Theme */
+[data-theme="autumn"] {
+  --bg-gradient-from: #fef3c7; /* amber-100 */
+  --bg-gradient-via: #fed7aa; /* orange-200 */
+  --bg-gradient-to: #fecaca; /* red-200 */
+  --floating-orb-1-from: #d97706; /* amber-600 */
+  --floating-orb-1-to: #92400e; /* amber-800 */
+  --floating-orb-2-from: #dc2626; /* red-600 */
+  --floating-orb-2-to: #7c2d12; /* red-900 */
+  --floating-orb-3-from: #ea580c; /* orange-600 */
+  --floating-orb-3-to: #9a3412; /* orange-800 */
+}
+
+/* Arctic Theme */
+[data-theme="arctic"] {
+  --bg-gradient-from: #f0f9ff; /* sky-50 */
+  --bg-gradient-via: #e0f2fe; /* sky-100 */
+  --bg-gradient-to: #f0fdfa; /* teal-50 */
+  --floating-orb-1-from: #0284c7; /* sky-600 */
+  --floating-orb-1-to: #0369a1; /* sky-700 */
+  --floating-orb-2-from: #0891b2; /* cyan-600 */
+  --floating-orb-2-to: #155e75; /* cyan-800 */
+  --floating-orb-3-from: #67e8f9; /* cyan-300 */
+  --floating-orb-3-to: #22d3ee; /* cyan-400 */
+}
+
+/* Tropical Theme */
+[data-theme="tropical"] {
+  --bg-gradient-from: #ecfdf5; /* green-50 */
+  --bg-gradient-via: #f0fdfa; /* teal-50 */
+  --bg-gradient-to: #fffbeb; /* amber-50 */
+  --floating-orb-1-from: #10b981; /* emerald-500 */
+  --floating-orb-1-to: #059669; /* emerald-600 */
+  --floating-orb-2-from: #06b6d4; /* cyan-500 */
+  --floating-orb-2-to: #0891b2; /* cyan-600 */
+  --floating-orb-3-from: #f59e0b; /* amber-500 */
+  --floating-orb-3-to: #d97706; /* amber-600 */
+}
+
+/* Rose Gold Theme */
+[data-theme="rosegold"] {
+  --bg-gradient-from: #fdf2f8; /* pink-50 */
+  --bg-gradient-via: #fef7ff; /* fuchsia-50 */
+  --bg-gradient-to: #fffbeb; /* amber-50 */
+  --floating-orb-1-from: #be185d; /* pink-700 */
+  --floating-orb-1-to: #a21caf; /* fuchsia-700 */
+  --floating-orb-2-from: #d97706; /* amber-600 */
+  --floating-orb-2-to: #b45309; /* amber-700 */
+  --floating-orb-3-from: #ec4899; /* pink-500 */
+  --floating-orb-3-to: #f59e0b; /* amber-500 */
+}
+
+/* Electric Theme */
+[data-theme="electric"] {
+  --bg-gradient-from: #1e1b4b; /* indigo-900 */
+  --bg-gradient-via: #312e81; /* indigo-800 */
+  --bg-gradient-to: #581c87; /* purple-900 */
+  --floating-orb-1-from: #8b5cf6; /* violet-500 */
+  --floating-orb-1-to: #7c3aed; /* violet-600 */
+  --floating-orb-2-from: #06b6d4; /* cyan-500 */
+  --floating-orb-2-to: #0891b2; /* cyan-600 */
+  --floating-orb-3-from: #3b82f6; /* blue-500 */
+  --floating-orb-3-to: #2563eb; /* blue-600 */
+}
+
+/* Apply theme colors to background */
+.theme-background {
+  background: linear-gradient(to bottom right, var(--bg-gradient-from), var(--bg-gradient-via), var(--bg-gradient-to));
+}
+
+.floating-orb-1 {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--floating-orb-1-from) 20%, transparent),
+    color-mix(in srgb, var(--floating-orb-1-to) 20%, transparent)
+  );
+}
+
+.floating-orb-2 {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--floating-orb-2-from) 25%, transparent),
+    color-mix(in srgb, var(--floating-orb-2-to) 25%, transparent)
+  );
+}
+
+.floating-orb-3 {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--floating-orb-3-from) 15%, transparent),
+    color-mix(in srgb, var(--floating-orb-3-to) 15%, transparent)
+  );
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -58,6 +257,20 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  /* Dark themes text adjustments */
+  [data-theme="neon"],
+  [data-theme="electric"] {
+    --foreground: 210 40% 98%;
+    --card-foreground: 210 40% 98%;
+    --popover-foreground: 210 40% 98%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary-foreground: 210 40% 98%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent-foreground: 210 40% 98%;
+    --destructive-foreground: 210 40% 98%;
+  }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;

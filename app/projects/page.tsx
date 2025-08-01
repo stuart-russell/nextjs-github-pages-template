@@ -1,5 +1,4 @@
 import { Github, ExternalLink, Calendar, Star, GitBranch } from "lucide-react"
-import Image from "next/image"
 
 export default function ProjectsPage() {
   // Mock projects data
@@ -107,17 +106,6 @@ export default function ProjectsPage() {
               animationDelay: `${index * 100}ms`,
             }}
           >
-            {/* Project Image */}
-            <div className="relative h-48 overflow-hidden">
-              <Image
-                src={project.image || "/placeholder.svg"}
-                alt={project.name}
-                fill
-                className="object-cover transition-transform duration-500 hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-            </div>
-
             {/* Project Content */}
             <div className="p-6">
               {/* Project Header */}
